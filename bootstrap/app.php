@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Middleware\AuthenticateUser;
+use App\Http\Middleware\CheckIfAuthenticate;
 use Illuminate\Foundation\Application;
 use Illuminate\Foundation\Configuration\Exceptions;
 use Illuminate\Foundation\Configuration\Middleware;
@@ -11,7 +13,11 @@ return Application::configure(basePath: dirname(__DIR__))
         health: '/up',
     )
     ->withMiddleware(function (Middleware $middleware) {
-        //
+        $middleware->alias([
+            'auth.check' => AuthenticateUser::class,
+            'check.already.auth' => CheckIfAuthenticate::class,
+            //others middleware goes here...
+        ]);
     })
     ->withExceptions(function (Exceptions $exceptions) {
         //
