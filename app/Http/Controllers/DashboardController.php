@@ -66,7 +66,7 @@ class DashboardController extends Controller
             'name' => 'required|min:3',
             'account_type' => 'required',
             'balance' => 'required',
-            'email' => 'required|email',
+            'email' => 'required',
             'password' => 'required',
         ]);
 
