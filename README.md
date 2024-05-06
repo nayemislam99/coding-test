@@ -40,4 +40,7 @@ DB_PASSWORD=
 php artisan db:seed --class=TransactionSeed
 php artisan db:seed --class=UserSeeder
 
+user name: admin@gmail.com
+password: password
+
 9. php artisan serve
